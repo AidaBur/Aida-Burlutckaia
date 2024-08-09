@@ -1,4 +1,4 @@
-name: Deploy site to Production
+name: Deploy site to Staging
 
 on: [pull_request]
 
