@@ -1,6 +1,9 @@
 name: Deploy site to Staging
 
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
   upload:
@@ -14,4 +17,4 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
       - name: Deploy to S3
-        run: aws s3 sync --delete ./ s3://${{ secrets.AWS_BUCKET }}/aida-burlutckaia.online/staging --exclude=".idea/*" --exclude ".git/*" --exclude ".github/*" --exclude "README*"
+        run: aws s3 sync --delete ./ s3://${{ secrets.AWS_BUCKET }}/aida-burlutckaia.online/production --exclude=".idea/*" --exclude ".git/*" --exclude ".github/*" --exclude "README*"
