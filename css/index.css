@@ -1,5 +1,7 @@
 html {
-  font-size: 16px; /* Установите базовый размер шрифта */
+  font-size: 16px; 
+  @import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap");
+
   scroll-behavior: smooth;
 }
 
@@ -24,6 +26,9 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 80px;
+  font-family: "Inter", sans-serif;
   background-color: #fffdf8;
   position: sticky;
   top: 0;
@@ -77,6 +82,24 @@ body {
 .logo-text a {
   color: black;
   text-decoration: none;
+}
+
+.logo:hover .logo-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #f74040;
+  border-radius: 50%;
+}
+
+.logo-text {
+  font-size: 20px;
+  font-weight: 600;
+  margin-left: 12px;
+}
+
+.logo-text a {
+  color: black; 
+  text-decoration: none; 
 }
 
 .logo-text a:hover {
@@ -580,6 +603,7 @@ textarea::placeholder {
     font-weight: 800;
     color: #000000;
     margin-bottom: 5.625rem; 
+  }
 }
 
 #name {
@@ -649,13 +673,13 @@ flex-grow: 1;
 
 .githublinks ul {
   flex-direction: row;
-  flex-wrap: wrap; /* Allows wrapping of items */
-  justify-content: center; /* Center items horizontally */
+  flex-wrap: wrap; 
+  justify-content: center; 
 }
 
 .githublinks li {
-  width: calc(50% - 1.25rem); /* Two items per row with margin adjustment */
-  margin: 0.625rem; /* Margin adjusted for wrapping */
+  width: calc(50% - 1.25rem);
+  margin: 0.625rem; 
 }
 
 .projects {
@@ -679,18 +703,19 @@ flex-grow: 1;
 
   .githublinks ul {
     flex-direction: row;
-    flex-wrap: nowrap; /* No wrapping */
-    justify-content: center; /* Center items horizontally */
+    flex-wrap: nowrap; 
+    justify-content: center; 
   }
 
   .githublinks li {
-    width: calc(25% - 1.25rem); /* Four items per row with margin adjustment */
-    margin: 0.625rem; /* Margin adjusted for layout */
+    width: calc(25% - 1.25rem); 
+    margin: 0.625rem; 
   }
 
   .portfolioItems li {
-    width: calc(25% - 1.25rem); /* Four items per row */
+    width: calc(25% - 1.25rem); 
   }
+}
 
 /* Styles for large desktop screens */
 @media (min-width: 1440px) {
