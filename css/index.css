@@ -226,8 +226,6 @@ p {
   list-style: none;
   padding: 0;
   margin: 0;
-  text-align: center;
-  
 }
 
 .experience li {
@@ -271,10 +269,10 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center; /* Добавлено выравнивание по центру */
   width: 80%;
   margin: 0 auto;
 }
-
 
 .designContainer,
 .codingContainer {
@@ -285,11 +283,11 @@ p {
   background-color: #ffffff;
   border-radius: 1.25rem;
   overflow: hidden;
-  width: 90%;
+  width: 80%;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  margin: 0.625rem 0;
+  margin: 0.625rem auto; /* Установлено авто-центрирование по горизонтали */
   box-sizing: border-box;
-  flex: 1; 
+  flex: 1;
 }
 
 .designSkills-photo,
@@ -312,11 +310,12 @@ p {
   padding: 1.25rem;
   width: 100%;
   box-sizing: border-box;
-  flex-grow: 1; 
+  flex-grow: 1;
   flex: 1;
 }
 
 .skills ul {
+  align-items: center;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -330,16 +329,17 @@ p {
 }
 
 .githublinks ul {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); 
+  gap: 1.25rem; 
   list-style: none;
   padding: 0;
   margin: 0;
-  align-items: center;
+  width: 100%;
 }
 
 .githublinks li {
-  width: 80%;
+  width: 100%;
   padding: 0.625rem;
   margin: 0.625rem 0;
   border-radius: 1.25rem;
@@ -541,10 +541,7 @@ textarea::placeholder {
 
 
 @media (min-width: 600px) {
-  .experience ul {
-    width: 100%;
-    grid-template-columns: repeat(2, 1fr);
-  }
+  
 
   .connect {
     padding: 3.75rem;
@@ -649,21 +646,26 @@ p {
   padding: 6.25rem 1.25rem 7.5rem; 
   text-align: center;
 }
-.experience ul {
+/*.experience ul {
   width: 100%;
   grid-template-columns: repeat(2, 1fr);
 }
+*/
 
 .skills {
-  flex-direction: row; 
+  /*flex-direction: row; */
+  width: 100%;
   justify-content: center;
   align-items: stretch;
 }
 
+
 .designContainer,
 .codingContainer {
-  width: 45%;
-  margin: 0.625rem;
+  width: 80%;
+  justify-content: center;
+  margin: 0.625rem auto;
+
   display: flex;
   flex-direction: column;
   flex: 1; 
@@ -675,13 +677,14 @@ flex-grow: 1;
 }
 
 .githublinks ul {
-  flex-direction: row;
+  /*flex-direction: row;*/
+  /*grid-template-columns: repeat(2, 1fr);*/
   flex-wrap: wrap; 
   justify-content: center; 
 }
 
 .githublinks li {
-  width: calc(50% - 1.25rem);
+  /*width: calc(50% - 1.25rem);*/
   margin: 0.625rem; 
 }
 
@@ -694,33 +697,53 @@ flex-grow: 1;
 
 /* Styles for laptops and small desktop screens */
 @media (min-width: 1024px) {
-  .experience ul {
-    width: 100%;
-    grid-template-columns: repeat(4, 1fr);
-  }
+
   
   .experience ul {
-    width: 100%;
     grid-template-columns: repeat(4, 1fr);
   }
 
   .githublinks ul {
+    grid-template-columns: repeat(4, 1fr);
     flex-direction: row;
     flex-wrap: nowrap; 
     justify-content: center; 
   }
 
   .githublinks li {
-    width: calc(25% - 1.25rem); 
+    /*width: calc(25% - 1.25rem); */
     margin: 0.625rem; 
   }
 
   .portfolioItems li {
     width: calc(25% - 1.25rem); 
   }
+
+  .skills {
+    width: 80%;
+    flex-direction: row; 
+    flex-wrap: wrap;
 }
 
+.designContainer,
+.codingContainer {
+  width: 80%;
+  margin: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#footer {
+  background-color: #000000;
+  width: 100%;
+  color: #ffffff;
+  padding: 0.625rem;
+  text-align: center;
+  margin-top: auto;
+}
 /* Styles for large desktop screens */
 @media (min-width: 1440px) {
 
+}
 }
