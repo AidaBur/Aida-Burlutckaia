@@ -258,6 +258,7 @@ p {
   background-color: #f74040;
 }
 
+
 .MySkills {
   width: 90%;
   margin: 0 auto;
@@ -269,7 +270,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; /* Добавлено выравнивание по центру */
+  justify-content: center; /* Center-align items */
   width: 80%;
   margin: 0 auto;
 }
@@ -279,15 +280,17 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  /*justify-content: flex-start;*/
   background-color: #ffffff;
   border-radius: 1.25rem;
   overflow: hidden;
   width: 80%;
   box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  margin: 0.625rem auto; /* Установлено авто-центрирование по горизонтали */
+  margin: 0.625rem auto; /* Center-align horizontally */
   box-sizing: border-box;
   flex: 1;
+  padding: 0; 
+  margin: 0;
 }
 
 .designSkills-photo,
@@ -316,10 +319,42 @@ p {
 
 .skills ul {
   align-items: center;
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  list-style: none; 
+  padding: 0; 
+  margin: 1rem 0; 
 }
+
+#designSkills,
+#codingSkills {
+  margin: 2rem auto; 
+  padding: 1.5rem; 
+  max-width: 80%; 
+  box-sizing: border-box; 
+}
+
+#designToolsList,
+#codingToolsList {
+  list-style: none; 
+  padding: 0; 
+  margin: 1rem 0; 
+}
+
+#designToolsList li,
+#codingToolsList li {
+  margin-bottom: 0.5rem; 
+}
+
+#designSkills p,
+#codingSkills p {
+  margin-bottom: 1rem; 
+}
+
+img {
+  display: block; 
+  max-width: 100%; 
+  height: auto; 
+}
+
 
 
 .projects {
@@ -663,7 +698,7 @@ p {
 .designContainer,
 .codingContainer {
   width: 80%;
-  justify-content: center;
+  /* justify-content: center; */
   margin: 0.625rem auto;
 
   display: flex;
