@@ -564,6 +564,11 @@ textarea::placeholder {
   box-shadow: 0px 0.9375rem 1.875rem rgba(0, 0, 0, 0.1);
 }
 
+#messages {
+  display: none;
+}
+
+
 #footer {
   background-color: #000000;
   width: 100%;
