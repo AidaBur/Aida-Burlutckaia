@@ -87,44 +87,39 @@
         </ul>
       </div>
 
+      
       <div id="skills" class="MySkills">
         <h2>My Skills</h2>
         <div class="skills">
-          <div class="codingContainer">
+          <div class="designContainer">
             <img src="img/design.png" alt="design" class="designSkills-photo" />
 
-            <div class="designSkills">
+            <section id="designSkills">
               <p>
                 I focus on clear content structure, clean design, and engaging interactions. I enjoy creating intuitive and visually appealing user experiences. My goal is to make designs that are both beautiful and easy to use.
               </p>
               <p><strong>Design Tools:</strong></p>
-              <ul>
-                <li>Figma</li>
-                <li>Adobe Photoshop</li>
-                <li>Adobe Illustrator</li>
-                <li>Adobe After Effects</li>
-                <li>Pen & Paper</li>
-              </ul>
-            </div>
+              <ul id="designToolsList"></ul> <!-- Empty list for design tools -->
+            </section>
           </div>
+
           <div class="codingContainer">
             <img src="img/coding.png" alt="coding" class="codingSkills-photo" />
-
-            <div class="codingSkills">
+          
+            <section id="codingSkills">
               <p>
                 I enjoy coding things from scratch and bringing ideas to life in the browser, seeing my designs come to life.
               </p>
               <p><strong>Languages I speak:</strong><br />HTML, CSS, JS</p>
               <p><strong>Dev Tools:</strong></p>
-              <ul>
-                <li>VSCode</li>
-                <li>Replit</li>
-                <li>GitHub</li>
+              <ul id="codingToolsList">
+                <!-- JavaScript will populate this list -->
               </ul>
-            </div>
+            </section>
           </div>
-        </div>
+        
       </div>
+   
 
       <div id="projects" class="projects">
         <h2>Projects</h2>
@@ -239,11 +234,9 @@
         </div>  
         </div>
 
-        <footer id="footer">
-          <p>© Aida Burlutckaia 2024</p>
-        </footer>  
         
-      
+      <script src="js/index.js"></script>
+
     </body>
    
     
