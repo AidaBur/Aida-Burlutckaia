@@ -45,3 +45,65 @@ const designTools = [
       toolsList.appendChild(li);
     });
   });
+
+
+
+  
+
+
+const messageForm = document.querySelector('.contact-form');
+if (messageForm) {
+    messageForm.addEventListener('submit', function(event) {
+        event.preventDefault(); 
+
+        
+        const userName = event.target.name.value;
+        const userEmail = event.target.email.value;
+        const userMessage = event.target.message.value;
+
+        const messageSection = document.getElementById('messages');
+        const messageList = messageSection.querySelector('ul');
+        const newMessage = document.createElement('li');
+
+        newMessage.innerHTML = `
+            <a href="mailto:${userEmail}">${userName}</a> 
+            <span>${userMessage}</span>
+            <button type="button" class="edit-button">edit</button>
+            <button type="button" class="remove-button">remove</button>
+        `;
+
+        messageList.appendChild(newMessage);
+
+        if (messageList.children.length > 0) {
+            messageSection.style.display = 'block'; 
+        }
+
+        messageForm.reset();
+    });
+
+    
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('remove-button')) {
+            const entry = event.target.parentNode;
+            entry.remove();
+
+            const messageSection = document.getElementById('messages');
+            if (messageSection.querySelector('ul').children.length === 0) {
+                messageSection.style.display = 'none'; // Hide the section
+            }
+        }
+    });
+
+    // edit button 
+    document.addEventListener('click', function(event) {
+        if (event.target.classList.contains('edit-button')) {
+            const entry = event.target.parentNode;
+            const span = entry.querySelector('span');
+            const newMessage = prompt('Edit your message:', span.textContent);
+            if (newMessage !== null) {
+                span.textContent = newMessage;
+            }
+        }
+    });
+}
+
