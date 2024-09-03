@@ -391,7 +391,13 @@ img {
 
 .githublinks li:hover {
   background-color: #01A358;
+  color: #ffffff;
   box-shadow: 0px 0.9375rem 1.875rem rgba(0, 0, 0, 0.3);
+}
+
+.githublinks a {
+  color: #ffffff; 
+  text-decoration: none; 
 }
 
 
