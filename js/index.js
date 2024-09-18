@@ -47,7 +47,10 @@ const designTools = [
   });
 
 
-
+  document.getElementById('burger-icon').addEventListener('click', function() {
+    document.body.classList.toggle('menu-open');
+  });
+  
   
 
 
@@ -151,3 +154,19 @@ fetch('https://api.github.com/users/AidaBur/repos')
   });
 
 
+  const burgerIcon = document.getElementById('burger-icon');
+const menu = document.getElementById('menu');
+
+burgerIcon.addEventListener('click', function() {
+  menu.classList.toggle('menu-open');
+});
+
+const profilePhoto = document.querySelector('.profile-photo');
+
+profilePhoto.addEventListener('mouseover', () => {
+  profilePhoto.src = 'img/my-photo-hover.png';
+});
+
+profilePhoto.addEventListener('mouseout', () => {
+  profilePhoto.src = 'img/my-photo.png';
+});
