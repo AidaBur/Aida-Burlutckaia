@@ -47,7 +47,10 @@ const designTools = [
   });
 
 
-
+  document.getElementById('burger-icon').addEventListener('click', function() {
+    document.body.classList.toggle('menu-open');
+  });
+  
   
 
 
@@ -107,3 +110,63 @@ if (messageForm) {
     });
 }
 
+
+
+// Make a request to the GitHub API to get user repositories
+fetch('https://api.github.com/users/AidaBur/repos')
+  .then(response => {
+    // Check if the response is successful
+    if (!response.ok) {
+      // If the response is not successful, throw an error
+      throw new Error('Network response was not ok');
+    }
+    // Return the response as JSON
+    return response.json();
+  })
+  .then(data => {
+    // Check if the data array is empty
+    if (data.length === 0) {
+      // If no repositories are found, log a message
+      console.log('No repositories found');
+      // Update the DOM to inform the user that no projects are available
+      document.getElementById('projects').querySelector('.githublinks').innerHTML = 'No projects available.';
+    } else {
+      // If repositories are found, process the data and update the DOM
+      const list = document.getElementById('projects').querySelector('.githublinks ul');
+      list.innerHTML = ''; // Clear existing content
+
+      // Iterate through each repository and add it to the list
+      data.forEach(repo => {
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+          <h3><strong><a href="${repo.html_url}" target="_blank">${repo.name}</a></strong></h3>
+          Created on ${new Date(repo.created_at).toLocaleDateString()}
+        `;
+        list.appendChild(listItem);
+      });
+    }
+  })
+  .catch(error => {
+    // Handle errors that occurred during the fetch
+    console.error('There has been a problem with your fetch operation:', error);
+    // Update the DOM to inform the user about the error
+    document.getElementById('projects').querySelector('.githublinks').innerHTML = 'An error occurred while fetching the projects.';
+  });
+
+
+  const burgerIcon = document.getElementById('burger-icon');
+const menu = document.getElementById('menu');
+
+burgerIcon.addEventListener('click', function() {
+  menu.classList.toggle('menu-open');
+});
+
+const profilePhoto = document.querySelector('.profile-photo');
+
+profilePhoto.addEventListener('mouseover', () => {
+  profilePhoto.src = 'img/my-photo-hover.png';
+});
+
+profilePhoto.addEventListener('mouseout', () => {
+  profilePhoto.src = 'img/my-photo.png';
+});
