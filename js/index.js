@@ -1,172 +1,201 @@
-const today = new Date(); // variable named today
-const thisYear = today.getFullYear(); // variable named thisYear
-const footer = document.createElement('footer'); // variable named footer 
-footer.id = 'footer'; // Assign an ID to the footer element for CSS
-const copyright = document.createElement('p'); // variable named copyright
-copyright.innerHTML = `© Aida Burlutckaia ${thisYear}`; // copyright element
-footer.appendChild(copyright);
-document.body.appendChild(footer);
+"use strict";
 
+/* ===========================
+   GLOBAL CONSTANTS
+=========================== */
 
-// Array of design tools
-const designTools = [
-    "Figma",
-    "Adobe Photoshop",
-    "Adobe Illustrator",
-    "Adobe After Effects",
-    "Pen & Paper"
-  ];
-  
-  // Get the design skills section by ID
-  const designSkillsSection = document.getElementById('designSkills');
-  
-  // Get the empty <ul> element within the design skills section
-  const designToolsList = document.getElementById('designToolsList');
-  
-  // Populate the design tools list
-  designTools.forEach(tool => {
-    // Create a new <li> element
-    const toolItem = document.createElement('li');
-    
-    // Set the text content of the <li> element
-    toolItem.textContent = tool;
-    
-    // Append the <li> element to the <ul>
-    designToolsList.appendChild(toolItem);
-  });
-  
+const STATIC_REPOS = [
+  {
+    title: "RetrieveApp (Full-Stack & Design)",
+    url: "https://retrieveapp-frontend.onrender.com",
+    meta: "React, Node.js/Express, Prisma, PostgreSQL, Cloudinary",
+  },
+  {
+    title: "KindNet (Frontend & Design)",
+    url: "https://kindnet.onrender.com",
+    meta: "React, React Router, Context API, Tailwind",
+  },
+  {
+    title: "MLB Data Dashboard — Interactive Viz",
+    url: "https://capstone-baseball-aidaburlutckaia.streamlit.app",
+    meta: "Python, Pandas, SQLite, Streamlit, Plotly",
+  },
+];
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const codingTools = ["VSCode", "Replit", "GitHub"];
+const DESIGN_TOOLS = [
+  "Figma",
+  "Adobe Photoshop",
+  "Adobe Illustrator",
+  "Adobe After Effects",
+  "Pen & Paper",
+];
+
+const CODING_TOOLS = ["VSCode", "Replit", "GitHub"];
+
+/* ===========================
+   DOM READY
+=========================== */
+
+document.addEventListener("DOMContentLoaded", () => {
+  /* ===== Footer ===== */
+  (function renderFooter() {
+    const today = new Date(); // variable named today
+    const thisYear = today.getFullYear(); // variable named thisYear
+
+    const footer = document.createElement("footer"); // variable named footer
+    footer.id = "footer"; // Assign an ID to the footer element for CSS
+    const copyright = document.createElement("p"); // variable named copyright
+    copyright.innerHTML = `© Aida Burlutckaia ${thisYear}`; // copyright element
+    footer.appendChild(copyright);
+    document.body.appendChild(footer);
+  })();
+
+  /* ===== Design Tools ===== */
+  (function renderDesignTools() {
+    const designToolsList = document.getElementById("designToolsList");
+    if (!designToolsList) return;
+
+    designToolsList.innerHTML = "";
+    DESIGN_TOOLS.forEach((tool) => {
+      const li = document.createElement("li");
+      li.textContent = tool;
+      designToolsList.appendChild(li);
+    });
+  })();
+
+  /* ===== Coding Tools ===== */
+  (function renderCodingTools() {
     const toolsList = document.getElementById("codingToolsList");
-    codingTools.forEach(tool => {
+    if (!toolsList) return;
+
+    toolsList.innerHTML = "";
+    CODING_TOOLS.forEach((tool) => {
       const li = document.createElement("li");
       li.textContent = tool;
       toolsList.appendChild(li);
     });
-  });
+  })();
 
+  /* ===== Burger Menu ===== */
+  (function setupBurger() {
+    const burgerIcon = document.getElementById("burger-icon");
+    if (!burgerIcon) return;
 
-  document.getElementById('burger-icon').addEventListener('click', function() {
-    document.body.classList.toggle('menu-open');
-  });
-  
-  
+    burgerIcon.addEventListener("click", () => {
+      document.body.classList.toggle("menu-open");
+    });
+  })();
 
+  /* ===== Profile Photo Hover ===== */
+  (function setupProfilePhotoHover() {
+    const profilePhoto = document.querySelector(".profile-photo");
+    if (!profilePhoto) return;
 
-const messageForm = document.querySelector('.contact-form');
-if (messageForm) {
-    messageForm.addEventListener('submit', function(event) {
-        event.preventDefault(); 
+    const DEFAULT_SRC = "img/my-photo.png";
+    const HOVER_SRC = "img/my-photo-hover.png";
 
-        
-        const userName = event.target.name.value;
-        const userEmail = event.target.email.value;
-        const userMessage = event.target.message.value;
+    profilePhoto.addEventListener("mouseover", () => {
+      profilePhoto.src = HOVER_SRC;
+    });
+    profilePhoto.addEventListener("mouseout", () => {
+      profilePhoto.src = DEFAULT_SRC;
+    });
+  })();
 
-        const messageSection = document.getElementById('messages');
-        const messageList = messageSection.querySelector('ul');
-        const newMessage = document.createElement('li');
+  /* ===== Contact Form: add / edit / remove ===== */
+  (function setupMessageForm() {
+    const messageForm = document.querySelector(".contact-form");
+    const messageSection = document.getElementById("messages");
+    const messageList = messageSection ? messageSection.querySelector("ul") : null;
 
-        newMessage.innerHTML = `
-            <a href="mailto:${userEmail}">${userName}</a> 
-            <span>${userMessage}</span>
-            <button type="button" class="edit-button">edit</button>
-            <button type="button" class="remove-button">remove</button>
-        `;
+    if (!messageForm || !messageSection || !messageList) return;
 
-        messageList.appendChild(newMessage);
+    if (messageList.children.length === 0) {
+      messageSection.style.display = "none";
+    }
 
-        if (messageList.children.length > 0) {
-            messageSection.style.display = 'block'; 
-        }
+    messageForm.addEventListener("submit", (event) => {
+      event.preventDefault();
 
-        messageForm.reset();
+      const userName = event.target.name.value.trim();
+      const userEmail = event.target.email.value.trim();
+      const userMessage = event.target.message.value.trim();
+
+      if (!userName || !userEmail || !userMessage) return;
+
+      const li = document.createElement("li");
+      li.innerHTML = `
+        <a href="mailto:${userEmail}">${userName}</a>
+        <span>${userMessage}</span>
+        <button type="button" class="edit-button">edit</button>
+        <button type="button" class="remove-button">remove</button>
+      `;
+
+      messageList.appendChild(li);
+      messageSection.style.display = "block";
+      messageForm.reset();
     });
 
+    document.addEventListener("click", (event) => {
+      const target = event.target;
+
+      // remove
+      if (target.classList.contains("remove-button")) {
+        const entry = target.closest("li");
+        if (entry) entry.remove();
+
+        if (messageList.children.length === 0) {
+          messageSection.style.display = "none";
+        }
+      }
+
+      // edit
+      if (target.classList.contains("edit-button")) {
+        const entry = target.closest("li");
+        const span = entry ? entry.querySelector("span") : null;
+        if (!span) return;
+
+        const newMessage = prompt("Edit your message:", span.textContent);
+        if (newMessage !== null) {
+          span.textContent = newMessage;
+        }
+      }
+    });
+  })();
+
+ 
+  (function renderStaticRepos() {
+
+    const repoList =
+      document.getElementById("repoList") ||
+      document.querySelector("#projects .githublinks ul");
+
+    if (!repoList) return;
+
+    repoList.innerHTML = "";
+
+    STATIC_REPOS.forEach((repo) => {
+      const li = document.createElement("li");
     
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('remove-button')) {
-            const entry = event.target.parentNode;
-            entry.remove();
-
-            const messageSection = document.getElementById('messages');
-            if (messageSection.querySelector('ul').children.length === 0) {
-                messageSection.style.display = 'none'; // Hide the section
-            }
-        }
+      const hasRole = repo.title.includes("(");
+      const [mainTitle, rolePart] = hasRole
+        ? repo.title.split(" (")
+        : [repo.title, ""];
+    
+      li.innerHTML = `
+        <h3>
+          <a href="${repo.url}" target="_blank" rel="noopener">
+            ${mainTitle}
+            ${hasRole ? `<br><span class="repo-role">(${rolePart}</span>` : ""}
+          </a>
+        </h3>
+        <span class="repo-meta">${repo.meta}</span>
+      `;
+      repoList.appendChild(li);
     });
+    
+    
 
-    // edit button 
-    document.addEventListener('click', function(event) {
-        if (event.target.classList.contains('edit-button')) {
-            const entry = event.target.parentNode;
-            const span = entry.querySelector('span');
-            const newMessage = prompt('Edit your message:', span.textContent);
-            if (newMessage !== null) {
-                span.textContent = newMessage;
-            }
-        }
-    });
-}
-
-
-
-// Make a request to the GitHub API to get user repositories
-fetch('https://api.github.com/users/AidaBur/repos')
-  .then(response => {
-    // Check if the response is successful
-    if (!response.ok) {
-      // If the response is not successful, throw an error
-      throw new Error('Network response was not ok');
-    }
-    // Return the response as JSON
-    return response.json();
-  })
-  .then(data => {
-    // Check if the data array is empty
-    if (data.length === 0) {
-      // If no repositories are found, log a message
-      console.log('No repositories found');
-      // Update the DOM to inform the user that no projects are available
-      document.getElementById('projects').querySelector('.githublinks').innerHTML = 'No projects available.';
-    } else {
-      // If repositories are found, process the data and update the DOM
-      const list = document.getElementById('projects').querySelector('.githublinks ul');
-      list.innerHTML = ''; // Clear existing content
-
-      // Iterate through each repository and add it to the list
-      data.forEach(repo => {
-        const listItem = document.createElement('li');
-        listItem.innerHTML = `
-          <h3><strong><a href="${repo.html_url}" target="_blank">${repo.name}</a></strong></h3>
-          Created on ${new Date(repo.created_at).toLocaleDateString()}
-        `;
-        list.appendChild(listItem);
-      });
-    }
-  })
-  .catch(error => {
-    // Handle errors that occurred during the fetch
-    console.error('There has been a problem with your fetch operation:', error);
-    // Update the DOM to inform the user about the error
-    document.getElementById('projects').querySelector('.githublinks').innerHTML = 'An error occurred while fetching the projects.';
-  });
-
-
-  const burgerIcon = document.getElementById('burger-icon');
-const menu = document.getElementById('menu');
-
-burgerIcon.addEventListener('click', function() {
-  menu.classList.toggle('menu-open');
-});
-
-const profilePhoto = document.querySelector('.profile-photo');
-
-profilePhoto.addEventListener('mouseover', () => {
-  profilePhoto.src = 'img/my-photo-hover.png';
-});
-
-profilePhoto.addEventListener('mouseout', () => {
-  profilePhoto.src = 'img/my-photo.png';
+  
+  })();
 });

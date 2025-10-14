@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 html {
-  font-size: 16px; 
+  font-size: 16px;
   scroll-behavior: smooth;
 }
 
@@ -16,7 +16,7 @@ body {
   margin: 0;
   padding: 0;
   text-align: center;
-  background-image: url('/img/dots.png'), url('/img/abstract.png');
+  background-image: url("/img/dots.png"), url("/img/abstract.png");
   background-position: left 3rem, right 15vw;
   background-repeat: no-repeat;
 }
@@ -100,8 +100,8 @@ body {
 }
 
 .logo-text a {
-  color: black; 
-  text-decoration: none; 
+  color: black;
+  text-decoration: none;
 }
 
 .logo-text a:hover {
@@ -118,7 +118,7 @@ body {
 }
 
 .arrow-down::after {
-  content: '';
+  content: "";
   display: block;
   width: 0;
   height: 0;
@@ -131,7 +131,11 @@ body {
 }
 
 @keyframes bounce {
-  0%, 20%, 50%, 80%, 100% {
+  0%,
+  20%,
+  50%,
+  80%,
+  100% {
     transform: translateY(0);
   }
   40% {
@@ -204,13 +208,12 @@ p {
   text-align: center;
   margin-top: 3.75rem;
   width: 100%;
-  overflow: hidden; 
-  position: relative; 
-  background-color: black; 
-  display: inline-block; 
-  white-space: nowrap; 
+  overflow: hidden;
+  position: relative;
+  background-color: black;
+  display: inline-block;
+  white-space: nowrap;
 }
-
 
 .experience {
   margin: 0 auto;
@@ -234,11 +237,11 @@ p {
 .experience li {
   display: flex;
   flex-direction: column;
-  justify-content: center;  
+  justify-content: center;
   align-items: center;
   text-align: center;
   width: 100%;
-  padding: 2rem 1.25rem;     
+  padding: 2rem 1.25rem;
   margin: 0;
   border-radius: 2.25rem;
   color: #ffffff;
@@ -270,8 +273,7 @@ p {
   font-size: 1rem;
   margin: 0.25rem 0;
   line-height: 1.4;
-}      
-
+}
 
 .MySkills {
   width: 90%;
@@ -284,7 +286,7 @@ p {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
   width: 80%;
   margin: 0 auto;
 }
@@ -303,7 +305,7 @@ p {
   margin: 0.625rem auto; /* Center-align horizontally */
   box-sizing: border-box;
   flex: 1;
-  padding: 0; 
+  padding: 0;
   margin: 0;
 }
 
@@ -333,43 +335,41 @@ p {
 
 .skills ul {
   align-items: center;
-  list-style: none; 
-  padding: 0; 
-  margin: 1rem 0; 
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
 #designSkills,
 #codingSkills {
-  margin: 2rem auto; 
-  padding: 1.5rem; 
-  max-width: 80%; 
-  box-sizing: border-box; 
+  margin: 2rem auto;
+  padding: 1.5rem;
+  max-width: 80%;
+  box-sizing: border-box;
 }
 
 #designToolsList,
 #codingToolsList {
-  list-style: none; 
-  padding: 0; 
-  margin: 1rem 0; 
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
 }
 
 #designToolsList li,
 #codingToolsList li {
-  margin-bottom: 0.5rem; 
+  margin-bottom: 0.5rem;
 }
 
 #designSkills p,
 #codingSkills p {
-  margin-bottom: 1rem; 
+  margin-bottom: 1rem;
 }
 
 img {
-  display: block; 
-  max-width: 100%; 
-  height: auto; 
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
-
-
 
 .projects {
   padding-top: 3.75rem;
@@ -379,8 +379,8 @@ img {
 
 .githublinks ul {
   display: grid;
-  grid-template-columns: repeat(1, 1fr); 
-  gap: 1.25rem; 
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1.25rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -404,16 +404,15 @@ img {
 }
 
 .githublinks li:hover {
-  background-color: #01A358;
+  background-color: #01a358;
   color: #ffffff;
   box-shadow: 0px 0.9375rem 1.875rem rgba(0, 0, 0, 0.3);
 }
 
 .githublinks a {
-  color: #ffffff; 
-  text-decoration: none; 
+  color: #ffffff;
+  text-decoration: none;
 }
-
 
 .portfolioItems {
   display: flex;
@@ -460,12 +459,12 @@ img {
 }
 
 .behance-button:hover {
-  background-color: #FF8A00;
+  background-color: #ff8a00;
   box-shadow: 0px 0.9375rem 1.875rem rgba(0, 0, 0, 0.1);
 }
 
 .connect {
-  padding: 1.25rem; 
+  padding: 1.25rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -477,7 +476,7 @@ img {
 }
 
 .connect p {
-  margin-bottom: 1.25rem; 
+  margin-bottom: 1.25rem;
 }
 
 .connect a {
@@ -501,7 +500,7 @@ img {
 }
 
 .connect li {
-  margin: 0.3125rem; 
+  margin: 0.3125rem;
 }
 
 .connect a {
@@ -509,7 +508,7 @@ img {
   align-items: center;
   justify-content: center;
   width: 3.75rem;
-  height: 3.75rem; 
+  height: 3.75rem;
   background-color: #3e89ff;
   border-radius: 50%;
   text-decoration: none;
@@ -517,7 +516,7 @@ img {
 
 .connect i {
   color: #ffffff;
-  font-size: 1.5rem; 
+  font-size: 1.5rem;
 }
 
 .message {
@@ -542,7 +541,7 @@ input[type="email"],
 textarea {
   width: 100%;
   padding: 0.9375rem 0.625rem;
-  border: 0.125rem solid #3E89FF;
+  border: 0.125rem solid #3e89ff;
   border-radius: 1.5625rem;
   font-size: 0.875rem;
   box-sizing: border-box;
@@ -572,22 +571,19 @@ textarea::placeholder {
   text-align: center;
 }
 
-
-
 .contact-form button a {
   color: #ffffff;
   text-decoration: none;
 }
 
 .contact-form button:hover {
-  background-color: #FF8A00;
+  background-color: #ff8a00;
   box-shadow: 0px 0.9375rem 1.875rem rgba(0, 0, 0, 0.1);
 }
 
 #messages {
   display: none;
 }
-
 
 #footer {
   background-color: #000000;
@@ -598,11 +594,7 @@ textarea::placeholder {
   text-align: center;
 }
 
-
-
 @media (min-width: 600px) {
-  
-
   .connect {
     padding: 3.75rem;
   }
@@ -625,24 +617,23 @@ textarea::placeholder {
   }
 }
 
-
 /* Styles for tablets in landscape orientation */
 
 @media (min-width: 768px) {
   .menu {
     display: flex;
-    flex-direction: row; 
-    justify-content: center; 
-    align-items: center; 
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     background-color: #fffdf8;
-    padding: 1rem; 
+    padding: 1rem;
     border-bottom: 0.0625rem solid #ffffff;
     box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
   }
 
   .menu-list {
     display: flex;
-    flex-direction: row; 
+    flex-direction: row;
     list-style: none;
     padding: 0;
     margin: 0;
@@ -651,59 +642,59 @@ textarea::placeholder {
   .menu-item {
     font-size: 1.125rem;
     font-weight: 600;
-    margin: 0 1rem; 
+    margin: 0 1rem;
   }
 
   .logo {
-    margin: 0 2rem; 
+    margin: 0 2rem;
   }
 
   h1 {
-    font-size: 5rem; 
+    font-size: 5rem;
     font-weight: 800;
     color: #000000;
-    margin-bottom: 5.625rem; 
+    margin-bottom: 5.625rem;
   }
 }
 
 #name {
-    font-weight: 400;
-    font-size: 2.1875rem; 
-    margin-bottom: 5.625rem; 
+  font-weight: 400;
+  font-size: 2.1875rem;
+  margin-bottom: 5.625rem;
 }
 
 h2 {
-    font-size: 3.125rem; 
-    font-weight: 600;
-    color: #000000;
-    margin-bottom: 5.625rem; 
+  font-size: 3.125rem;
+  font-weight: 600;
+  color: #000000;
+  margin-bottom: 5.625rem;
 }
 
 h3 {
-    font-size: 1.25rem; 
-    font-weight: 600;
-    padding-bottom: 0.625rem; 
-    margin-bottom: 0.3125rem; 
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding-bottom: 0.625rem;
+  margin-bottom: 0.3125rem;
 }
 
 p {
-    font-size: 1.375rem; 
-    font-weight: 400;
-    line-height: 1.6;
-    margin-bottom: 1.25rem; 
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
 }
 
 .about {
   width: 80%;
   margin: 0 auto;
-  padding: 6.25rem 1.25rem 7.5rem; 
+  padding: 6.25rem 1.25rem 7.5rem;
   text-align: center;
 }
 
-.experience{
+.experience {
   width: 80%;
   margin: 0 auto;
-  padding: 6.25rem 1.25rem 7.5rem; 
+  padding: 6.25rem 1.25rem 7.5rem;
   text-align: center;
 }
 /*.experience ul {
@@ -719,7 +710,6 @@ p {
   align-items: stretch;
 }
 
-
 .designContainer,
 .codingContainer {
   width: 80%;
@@ -728,37 +718,35 @@ p {
 
   display: flex;
   flex-direction: column;
-  flex: 1; 
+  flex: 1;
 }
 
 .designSkills,
 .codingSkills {
-flex-grow: 1;
+  flex-grow: 1;
 }
 
 .githublinks ul {
   /*flex-direction: row;*/
   /*grid-template-columns: repeat(2, 1fr);*/
-  flex-wrap: wrap; 
-  justify-content: center; 
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .githublinks li {
   /*width: calc(50% - 1.25rem);*/
-  margin: 0.625rem; 
+  margin: 0.625rem;
 }
 
 .projects {
   width: 80%;
   margin: 0 auto;
-  padding: 6.25rem 1.25rem 7.5rem; 
+  padding: 6.25rem 1.25rem 7.5rem;
   text-align: center;
 }
 
 /* Styles for laptops and small desktop screens */
 @media (min-width: 1024px) {
-
-  
   .experience ul {
     grid-template-columns: repeat(4, 1fr);
   }
@@ -766,47 +754,60 @@ flex-grow: 1;
   .githublinks ul {
     grid-template-columns: repeat(4, 1fr);
     flex-direction: row;
-    flex-wrap: nowrap; 
-    justify-content: center; 
+    flex-wrap: nowrap;
+    justify-content: center;
   }
 
   .githublinks li {
     /*width: calc(25% - 1.25rem); */
-    margin: 0.625rem; 
+    margin: 0.625rem;
   }
 
   .portfolioItems li {
-    width: calc(50% - 1.25rem); 
+    width: calc(50% - 1.25rem);
   }
 
   .skills {
     width: 80%;
-    flex-direction: row; 
+    flex-direction: row;
     flex-wrap: wrap;
-}
+  }
 
-.designContainer,
-.codingContainer {
-  width: 80%;
-  margin: 0.625rem;
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
+  .designContainer,
+  .codingContainer {
+    width: 80%;
+    margin: 0.625rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
 
-#footer {
-  background-color: #000000;
-  width: 100%;
-  color: #ffffff;
-  padding: 0.625rem;
-  text-align: center;
-  margin-top: auto;
-}
-/* Styles for large desktop screens */
-@media (min-width: 1440px) {
-
-  .portfolioItems li {
-    width: calc(25% - 1.25rem); 
+  #footer {
+    background-color: #000000;
+    width: 100%;
+    color: #ffffff;
+    padding: 0.625rem;
+    text-align: center;
+    margin-top: auto;
+  }
+  /* Styles for large desktop screens */
+  @media (min-width: 1440px) {
+    .portfolioItems li {
+      width: calc(25% - 1.25rem);
+    }
   }
 }
+.repo-role {
+  display: block;
+  font-size: 0.95rem;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.repo-meta {
+  display: block;
+  font-size: 0.8rem; /* меньше, чем роль */
+  color: #ffffff;
+  opacity: 0.7; /* чуть затемнено */
+  margin-top: 0.2rem;
 }
