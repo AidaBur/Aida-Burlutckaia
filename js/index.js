@@ -20,6 +20,12 @@ const STATIC_REPOS = [
     url: "https://capstone-baseball-aidaburlutckaia.streamlit.app",
     meta: "Python, Pandas, SQLite, Streamlit, Plotly",
   },
+  {
+    title: "React To-Do (Frontend • Airtable)",
+    url: "https://aida-burlutckaia.onrender.com",
+    meta: "React, Vite, Airtable",
+  },
+  
 ];
 
 const DESIGN_TOOLS = [
